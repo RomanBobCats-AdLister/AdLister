@@ -25,26 +25,9 @@ public class User {
         this.password = password;
     }
 
-    public User(long id, long catId, String category) {
+    public User(long id, String category) {
         this.id = id;
-        this.catId = catId;
         this.category = category;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public long getCatId() {
-        return catId;
-    }
-
-    public void setCatId(long catId) {
-        this.catId = catId;
     }
 
     public String getCategory() {
