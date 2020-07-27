@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,44 +7,26 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<br>
 
-    <div class="container">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
-    </div>
-    <ul>
-        <li><a href="/login">Edit</a></li>
-        <li><a href="/logout">Delete</a></li>
-        <li><a href="/login">Settings</a></li>
-        <li><a href="/logout">Test</a></li>
-    </ul>
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-        Launch static backdrop modal
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
+<div class="container">
+    <div class="columns">
+        <div class="content">
+            <h1>Welcome, ${sessionScope.user.username}!</h1>
+            <div class="column is-two-thirds">
+                <img alt="profilePic" class="profilePic" src="pictures/batman.jpeg">
+            </div>
+            <div class="column is-one-third">
+                <h5>Profile Info</h5>
+                <p>Username: ${user.username}</p>
+                <p>Email: ${user.email}</p>
+                <a href ="http://localhost:8080/updateProfile">Edit Info</a>
             </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>
+
