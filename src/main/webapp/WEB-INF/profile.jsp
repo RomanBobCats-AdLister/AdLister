@@ -10,6 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <br>
 
+
 <div class="container">
     <div class="columns">
         <div class="content">
