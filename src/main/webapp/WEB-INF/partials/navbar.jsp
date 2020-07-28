@@ -16,7 +16,7 @@
                 </c:otherwise>
             </c:choose>
 
-
+<%--test--%>
         </ul>
     </div><!-- /.navbar-collapse -->
 
