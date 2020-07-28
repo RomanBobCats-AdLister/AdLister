@@ -57,17 +57,33 @@ public class MySQLAdsDao implements Ads {
        try{
            PreparedStatement statement = connection.prepareStatement(idQuery);
            statement.setLong(1, id);
-           return extractAd(statement.executeQuery());
+           ResultSet rs = statement.executeQuery();
+           if (! rs.next()) {
+               return null;
+           }
+           return extractAd(rs);
 
        }catch(SQLException e){
            throw new RuntimeException("Error finding the ad id", e);
        }
     }
 
-    private Ad extractAd(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+@Override
+    public Ad deleteAd(long id){
+        findById(id);
+        String deleteAdQuery = "DELETE FROM ads WHERE id = ?";
+        try{
+            PreparedStatement statement = connection.prepareStatement(deleteAdQuery);
+            statement.setLong(1, id);
+             boolean confirmDeletion = statement.execute();
             return null;
+        }catch(SQLException e){
+            throw new RuntimeException("Error finding the ad id", e);
         }
+    }
+
+    private Ad extractAd(ResultSet rs) throws SQLException {
+
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),
