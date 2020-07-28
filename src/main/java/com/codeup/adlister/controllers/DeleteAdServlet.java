@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet (name = "controller.DeleteAdServlet", urlPatterns = "/deleteAd")
+@WebServlet (name = "controller.DeleteAdServlet", urlPatterns = "/ads/deleteAd")
 public class DeleteAdServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String adToDelete = req.getParameter("adToDelete");
-        System.out.println("adToDelete = " + adToDelete);
+//        System.out.println("adToDelete = " + adToDelete);
         long adId = Long.parseLong(req.getParameter("adToDelete"));
-        System.out.println( adId);
+//        System.out.println( adId);
         Ad deleteAd = DaoFactory.getAdsDao().deleteAd(adId);
 //        if (deleteAd == null) {
 //            resp.sendRedirect("/displayAd");

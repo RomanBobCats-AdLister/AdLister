@@ -12,5 +12,8 @@ public interface Ads {
 
     Ad findById(long id);
 
+   Ad editAdTitle(long id, String title);
+    Ad editAdDescription(long id, String description);
+
     Ad deleteAd(long id);
 }
