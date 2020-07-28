@@ -8,6 +8,8 @@ public class User {
     private String email;
     private String password;
 
+    private String category;
+
     public User() {}
 
     public User(String username, String email, String password) {
@@ -21,6 +23,19 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(long id, String category) {
+        this.id = id;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public long getId() {

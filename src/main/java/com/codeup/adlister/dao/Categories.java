@@ -1,12 +1,15 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Category;
 import com.codeup.adlister.models.User;
 
 import java.util.List;
 
-public interface Users {
+public interface Categories {
+    List<Categories> all();
     User findByUsername(String username);
-    Long insert(User user);
+    Long insert(Category category);
 
-    void editUser(Long id, String email);
+
+
 }

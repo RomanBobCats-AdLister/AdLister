@@ -1,11 +1,7 @@
 package com.codeup.adlister.dao;
-
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +51,23 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad findById(long id) {
+       String idQuery = "SELECT * FROM ads WHERE id = ?";
+       try{
+           PreparedStatement statement = connection.prepareStatement(idQuery);
+           statement.setLong(1, id);
+           return extractAd(statement.executeQuery());
+
+       }catch(SQLException e){
+           throw new RuntimeException("Error finding the ad id", e);
+       }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
+        if (! rs.next()) {
+            return null;
+        }
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),
