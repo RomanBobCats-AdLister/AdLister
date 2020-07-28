@@ -63,14 +63,14 @@ public class MySQLAdsDao implements Ads {
            throw new RuntimeException("Error finding the ad id", e);
        }
     }
-
-    public Ad deleteAd(long id){
-        String deleteQuery = "DELETE FROM * ads WHERE id = ?";
+    @Override
+    public boolean deleteAd(long id){
+        String deleteAdQuery = "DELETE FROM ads WHERE id = ?";
         try{
-            PreparedStatement statement = connection.prepareStatement(idQuery);
+            PreparedStatement statement = connection.prepareStatement(deleteAdQuery);
             statement.setLong(1, id);
-            return extractAd(statement.executeUpdate());
-
+             boolean confirmDeletion = statement.execute();
+             return confirmDeletion;
         }catch(SQLException e){
             throw new RuntimeException("Error finding the ad id", e);
         }
