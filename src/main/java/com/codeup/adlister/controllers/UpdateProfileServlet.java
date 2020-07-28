@@ -22,7 +22,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 
     String email = request.getParameter("email");
-    String username = request.getParameter("username");
+//    String username = request.getParameter("username");
     Long id = Long.parseLong(request.getParameter("id"));
     DaoFactory.getUsersDao().editUser(id, email);
 
