@@ -30,9 +30,26 @@
     <div>
         <h4>Here are your Ads!</h4>
         <c:forEach var="ad" items="${ads}">
-        <h2>${ad.title}</h2>
+
+        <h5>${ad.title}</h5>
         <p>${ad.description}</p>
+            <button id="editButton" class="btn btn-primary btn-block" >Edit Ad</button>
+            <script type="text/javascript">
+                document.getElementById("editButton").onclick = function () {
+                    location.href = "/ads/edit";
+                };
+            </script>
+
+            <button id="deleteButton" class="btn btn-primary btn-block" >Delete Ad</button>
+            <script type="text/javascript">
+                document.getElementById("deleteButton").onclick = function () {
+                    location.href = "/ads/delete";
+                };
+            </script>
+
         </c:forEach>
+
+
     </div>
     <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
     <script type="text/javascript">
