@@ -30,19 +30,19 @@
         <button>Let's go!</button>
     </form>
 
-    <c:if test="${ads != null}">
-        <h1>Displaying results for <c:out value="${searchQuery}"/> </h1>
-        <table>
-            <th>Title</th>
-            <th>Description</th>
-            <c:forEach items="${ads}" var="ad">
-                <tr>
-                    <td>${ad.title}</td>
-                    <td>${ad.description}</td>
-                </tr>
-            </c:forEach>
-        </table>
-    </c:if>
+<%--    <c:if test="${ads != null}">--%>
+<%--        <h1>Displaying results for <c:out value="${searchQuery}"/> </h1>--%>
+<%--        <table>--%>
+<%--            <th>Title</th>--%>
+<%--            <th>Description</th>--%>
+<%--            <c:forEach items="${ads}" var="ad">--%>
+<%--                <tr>--%>
+<%--                    <td>${ad.title}</td>--%>
+<%--                    <td>${ad.description}</td>--%>
+<%--                </tr>--%>
+<%--            </c:forEach>--%>
+<%--        </table>--%>
+<%--    </c:if>--%>
 </div>
 
 
