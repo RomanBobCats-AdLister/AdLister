@@ -21,6 +21,19 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
+    @Override
+    public List<Ad> adsByUser(long userId) {
+        PreparedStatement stmt = null;
+        try {
+            String insertQuery = "SELECT * FROM ads WHERE user_id = ?";
+            stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving your ads.", e);
+        }
+    }
 
     @Override
     public List<Ad> all() {
@@ -84,3 +97,4 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 }
+

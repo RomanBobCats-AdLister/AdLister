@@ -19,12 +19,18 @@ request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, respon
 
 }
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    User loggedUser = (User) request.getSession().getAttribute("user");
-    request.setAttribute("user", DaoFactory.getUsersDao().findByUsername(loggedUser.getEmail()));
+
 
     String email = request.getParameter("email");
+    String username = request.getParameter("username");
     Long id = Long.parseLong(request.getParameter("id"));
     DaoFactory.getUsersDao().editUser(id, email);
+
+
+//    DaoFactory.getUsersDao().editUser(id, username);
+//    User loggedUser = (User) request.getSession().getAttribute("user");
+//    request.setAttribute("user", loggedUser);
+
 
     response.sendRedirect("/profile");
 

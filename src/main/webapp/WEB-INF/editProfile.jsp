@@ -18,10 +18,16 @@
         <form action="/updateProfile" method="post">
 
             <div class="field">
+
+
                 <input type="hidden" name="id" class="form-control" value="${user.id}">
                 <label for="email">Email</label>
                 <div class="control">
                 <input id="email" name="email" class="input is-rounded" type="text" value="${user.email}">
+
+<%--    tried to edit user name--%>
+<%--                <input id="username" name="username" class="input is-rounded" type="text" value="${user.username}">--%>
+
             </div>
             </div>
             <div class="field">

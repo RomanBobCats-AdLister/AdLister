@@ -26,6 +26,22 @@
             </div>
         </div>
     </div>
+
+    <div>
+        <h4>Here are your Ads!</h4>
+        <c:forEach var="ad" items="${ads}">
+        <h2>${ad.title}</h2>
+        <p>${ad.description}</p>
+        </c:forEach>
+    </div>
+    <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "/ads/create";
+        };
+    </script>
+
+
 </div>
 
 </body>
