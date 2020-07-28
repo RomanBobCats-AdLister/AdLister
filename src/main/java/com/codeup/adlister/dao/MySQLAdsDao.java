@@ -64,6 +64,32 @@ public class MySQLAdsDao implements Ads {
        }
     }
 
+    @Override
+    public List<Ad> search(String query) {
+        PreparedStatement stmt = null;
+        String sqlQuery = "SELECT * FROM ads WHERE title LIKE ?";
+        String userInput = "%" + query + "%";
+
+        try {
+            stmt = connection.prepareStatement(sqlQuery);
+            stmt.setString(1, userInput);
+
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving from query", e);
+        }
+    }
+
+    private List<Ad> createItemsFromResults(ResultSet rs) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        while (rs.next()) {
+            ads.add(extractAd(rs));
+        }
+        return ads;
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;
