@@ -57,43 +57,33 @@ public class MySQLAdsDao implements Ads {
        try{
            PreparedStatement statement = connection.prepareStatement(idQuery);
            statement.setLong(1, id);
-           return extractAd(statement.executeQuery());
+           ResultSet rs = statement.executeQuery();
+           if (! rs.next()) {
+               return null;
+           }
+           return extractAd(rs);
 
        }catch(SQLException e){
            throw new RuntimeException("Error finding the ad id", e);
        }
     }
 
-    @Override
-    public List<Ad> search(String query) {
-        PreparedStatement stmt = null;
-        String sqlQuery = ("SELECT * FROM groceries WHERE item LIKE '%"+ query + "%'" );
-        String userInput = "%" + query + "%";
-
-        try {
-            stmt = connection.prepareStatement(sqlQuery);
-            stmt.setString(1, userInput);
-
-            stmt.executeQuery();
-            ResultSet rs = stmt.getResultSet();
-            return createAdsFromResults(rs);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving from query", e);
+@Override
+    public Ad deleteAd(long id){
+        findById(id);
+        String deleteAdQuery = "DELETE FROM ads WHERE id = ?";
+        try{
+            PreparedStatement statement = connection.prepareStatement(deleteAdQuery);
+            statement.setLong(1, id);
+             boolean confirmDeletion = statement.execute();
+            return null;
+        }catch(SQLException e){
+            throw new RuntimeException("Error finding the ad id", e);
         }
-    }
-
-    private List<Ad> createItemsFromResults(ResultSet rs) throws SQLException {
-        List<Ad> ads = new ArrayList<>();
-        while (rs.next()) {
-            ads.add(extractAd(rs));
-        }
-        return ads;
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
-            return null;
-        }
+
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),

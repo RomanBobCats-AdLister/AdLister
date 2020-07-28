@@ -19,9 +19,14 @@
     <div>
     <p>${ad.description} </p>
     </div>
+    <form action="/DisplayAdServlet" >
     <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
+    </form>
     <br>
-    <input type="submit" value="Delete this ad" class="btn btn-block btn-primary">
+    <form action="/deleteAd"  method="post">
+        <input type="hidden" name ="adToDelete" value="${ad.id}">
+    <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
+    </form>
 </div>
 
 </body>
