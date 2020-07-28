@@ -13,6 +13,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE ads (
+
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
@@ -31,3 +32,4 @@ CREATE TABLE categories (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
+
