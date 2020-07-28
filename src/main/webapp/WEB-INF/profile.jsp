@@ -23,6 +23,12 @@
                 <p>Username: ${user.username}</p>
                 <p>Email: ${user.email}</p>
                 <a href ="http://localhost:8080/updateProfile">Edit Info</a>
+                <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
+                <script type="text/javascript">
+                    document.getElementById("myButton").onclick = function () {
+                        location.href = "/ads/create";
+                    };
+                </script>
             </div>
         </div>
     </div>
