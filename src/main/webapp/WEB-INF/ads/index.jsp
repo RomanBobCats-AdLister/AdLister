@@ -18,6 +18,9 @@
             <p>${ad.description}</p>
         </div>
     </c:forEach>
+    <form class="form-inline" method="post" action="/Search.jsp">
+        <input type="text" name="search_ads" class="form-control" placeholder="Search..">
+        <button type="submit" name="save" class="btn btn-primary">Search</button>
 </div>
 
 </body>
