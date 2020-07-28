@@ -34,8 +34,8 @@ public class ListAdsDao implements Ads {
         return ads.get((int) id-1);
     }
 
-    @Override
-    public boolean deleteAd(long id) {
+@Override
+    public Ad deleteAd(long id) {
         return ads.get((int) id-1);
     }
 

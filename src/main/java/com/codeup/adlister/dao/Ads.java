@@ -12,5 +12,5 @@ public interface Ads {
 
     Ad findById(long id);
 
-    boolean deleteAd(long id);
+    Ad deleteAd(long id);
 }
