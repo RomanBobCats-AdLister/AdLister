@@ -67,7 +67,7 @@ public class MySQLAdsDao implements Ads {
     @Override
     public List<Ad> search(String query) {
         PreparedStatement stmt = null;
-        String sqlQuery = "SELECT * FROM ads WHERE title LIKE ?";
+        String sqlQuery = ("SELECT * FROM groceries WHERE item LIKE '%"+ query + "%'" );
         String userInput = "%" + query + "%";
 
         try {
