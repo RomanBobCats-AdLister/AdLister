@@ -14,16 +14,19 @@
         </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<br>
 <div class="container">
     <h1>${ad.title} Details!</h1>
     <div>
     <p>${ad.description} </p>
     </div>
-    <form action="/DisplayAdServlet" >
+    <form action="/ads/updateAd" method="get" >
+        <input type="hidden" name ="adToUpdate" value="${ad.id}">
     <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
     </form>
     <br>
-    <form action="/deleteAd"  method="post">
+    <form action="/ads/deleteAd"  method="post">
         <input type="hidden" name ="adToDelete" value="${ad.id}">
     <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
     </form>

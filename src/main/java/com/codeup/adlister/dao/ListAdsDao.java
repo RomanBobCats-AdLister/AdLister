@@ -37,7 +37,16 @@ public class ListAdsDao implements Ads {
         return ads.get((int) id-1);
     }
 
-@Override
+    @Override
+    public Ad editAdTitle(long id, String title) {
+        return ads.get((int) id-1);
+    }
+    @Override
+    public Ad editAdDescription(long id, String description) {
+        return ads.get((int) id-1);
+    }
+
+    @Override
     public Ad deleteAd(long id) {
         return ads.get((int) id-1);
     }
