@@ -7,7 +7,8 @@ public class Category {
     private long userId;
     private String category;
 
-
+// have property that is a list of ads
+    // every add that has this cat is goin to be in the list
 
     public Category(long id, long userId, String category) {
         this.id = id;
