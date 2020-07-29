@@ -21,23 +21,34 @@
 
         <div class="col-md-6">
 
-            <h2 class="text-center">${ad.title}</h2>
-
+            <h2>Title: ${ad.title}</h2>
+            <h2>Description:
             <textarea class="form-control rounded-0">${ad.description}</textarea>
-
+            </h2>
             <a href = "/displayAd?id=${ad.id}">View ad details</a>
 
         </div>
 <%--        </div>--%>
 
     </c:forEach>
-</div>
-<%--<tr class="col-md-4">--%>
-    <form action="/ads" method="post">
-        <input type="text" id="ad" name="ad" placeholder="What are you looking for today?">
-        <button>Let's go!</button>
-    </form>
 
+<%--<tr class="col-md-4">--%>
+    <div class="col-md-6">
+        <ul>
+            <li>
+                <div>
+                    <h3>Looking for something specific?</h3>
+                </div>
+            </li>
+            <li>
+                <form action="/ads" method="post">
+                    <input type="text" id="ad" name="ad" placeholder="Search">
+                    <button>Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
 <%--    <c:if test="${ads != null}">--%>
 <%--        <h1>Displaying results for <c:out value="${searchQuery}"/> </h1>--%>
 <%--        <table>--%>

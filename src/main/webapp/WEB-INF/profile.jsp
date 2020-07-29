@@ -47,8 +47,6 @@
             location.href = "/ads/create";
         };
     </script>
-
-
 </div>
 
 </body>

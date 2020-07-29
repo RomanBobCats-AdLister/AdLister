@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -22,12 +23,12 @@ public class MySQLAdsDao implements Ads {
         }
     }
     @Override
-    public List<Ad> adsByUser(long userId) {
+    public List<Ad> adsByUser(long id) {
         PreparedStatement stmt = null;
         try {
-            String insertQuery = "SELECT * FROM ads WHERE user_id = ?";
+            String insertQuery = "SELECT * FROM ads WHERE id = ?";
             stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, userId);
+            stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
@@ -67,11 +68,11 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(title, description, cat_id) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getUserId());
-            stmt.setString(2, ad.getTitle());
-            stmt.setString(3, ad.getDescription());
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setLong(3, ad.getCategory().getId());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -142,15 +143,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // may need to modify this to get the category from add
     private Ad extractAd(ResultSet rs) throws SQLException {
 
         return new Ad(
             rs.getLong("id"),
-            rs.getLong("user_id"),
             rs.getString("title"),
-            rs.getString("description")
-        );
+            rs.getString("description"),
+                new Category(
+                1,
+                "test"
+        )
+
+                );
     }
+
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();

@@ -14,13 +14,11 @@
                     <li><a href="/logout">Logout</a></li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="/ads">View Ads</a></li>
-                    <li><a href="/register">Resgister</a></li>
                     <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
                 </c:otherwise>
             </c:choose>
-
-<%--test--%>
+        <%--test--%>
         </ul>
     </div><!-- /.navbar-collapse -->
 
