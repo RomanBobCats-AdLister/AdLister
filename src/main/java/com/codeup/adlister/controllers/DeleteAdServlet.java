@@ -15,15 +15,16 @@ import java.io.IOException;
 public class DeleteAdServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        GET THE VALUE FROM THE FORM:
         String adToDelete = req.getParameter("adToDelete");
 //        System.out.println("adToDelete = " + adToDelete);
+
+//        PARSE THE ID FROM STRING FORMAT:
         long adId = Long.parseLong(req.getParameter("adToDelete"));
 //        System.out.println( adId);
+
+//        CREATE AN OBJECT WITH DAOFACTORY AND RUN DELETE METHOD
         Ad deleteAd = DaoFactory.getAdsDao().deleteAd(adId);
-//        if (deleteAd == null) {
-//            resp.sendRedirect("/displayAd");
-//            return;
-//        }
 
        resp.sendRedirect("/ads");
     }
