@@ -21,10 +21,10 @@
 
         <div class="col-md-6">
 
-            <h2 class="text-center">${ad.title}</h2>
-
+            <h2>Title: ${ad.title}</h2>
+            <h2>Description:
             <textarea class="form-control rounded-0">${ad.description}</textarea>
-
+            </h2>
             <a href = "/displayAd?id=${ad.id}">View ad details</a>
 
         </div>

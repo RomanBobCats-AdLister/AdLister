@@ -2,10 +2,14 @@ package com.codeup.adlister.models;
 
 import com.codeup.adlister.dao.Config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Category {
     private long id;
     private long userId;
     private String category;
+    private List<Ad> ads = new ArrayList<>();
 
 // have property that is a list of ads
     // every add that has this cat is goin to be in the list
