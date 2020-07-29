@@ -22,13 +22,7 @@
                 <h5>Profile Info</h5>
                 <p>Username: ${user.username}</p>
                 <p>Email: ${user.email}</p>
-                <a href ="http://localhost:8080/updateProfile">Edit Info</a>
-                <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
-                <script type="text/javascript">
-                    document.getElementById("myButton").onclick = function () {
-                        location.href = "/ads/create";
-                    };
-                </script>
+                <a href ="/updateProfile">Edit Info</a>
             </div>
         </div>
     </div>
@@ -36,26 +30,10 @@
     <div>
         <h4>Here are your Ads!</h4>
         <c:forEach var="ad" items="${ads}">
-
         <h5>${ad.title}</h5>
         <p>${ad.description}</p>
-            <button id="editButton" class="btn btn-primary btn-block" >Edit Ad</button>
-            <script type="text/javascript">
-                document.getElementById("editButton").onclick = function () {
-                    location.href = "/ads/edit";
-                };
-            </script>
-
-            <button id="deleteButton" class="btn btn-primary btn-block" >Delete Ad</button>
-            <script type="text/javascript">
-                document.getElementById("deleteButton").onclick = function () {
-                    location.href = "/ads/delete";
-                };
-            </script>
-
+        <a href = "/displayAd?id=${ad.id}">View ad details</a>
         </c:forEach>
-
-
     </div>
     <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
     <script type="text/javascript">

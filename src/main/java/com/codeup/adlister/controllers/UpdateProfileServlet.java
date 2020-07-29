@@ -2,6 +2,8 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
+import com.codeup.adlister.util.Password;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +15,9 @@ import java.io.IOException;
 @WebServlet(name = "controller.UpdateProfileServlet", urlPatterns = "/updateProfile")
 public class UpdateProfileServlet extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.getSession().getAttribute("user");
 
+
+ User user = (User)request.getSession().getAttribute("user");
 request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
 
 }
@@ -22,14 +25,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 
     String email = request.getParameter("email");
-//    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+
+    String hashPassword =Password.hash(password);
+//    System.out.println(hashPassword);
+
     Long id = Long.parseLong(request.getParameter("id"));
-    DaoFactory.getUsersDao().editUser(id, email);
+    DaoFactory.getUsersDao().editUser(id, email,hashPassword);
 
 
-//    DaoFactory.getUsersDao().editUser(id, username);
-//    User loggedUser = (User) request.getSession().getAttribute("user");
-//    request.setAttribute("user", loggedUser);
 
 
     response.sendRedirect("/profile");
