@@ -29,3 +29,4 @@ INSERT INTO users(username, email, password) VALUES ('parrH', 'elastigirl@incred
 INSERT INTO ads(user_id, title, description ) VALUES (4, 'Super Suit', 'Gray, designed by Alexander Galbaki.  Has a small tear on left shoulder.  Easliy mendable.  Asking $150 OBO');
 
 INSERT INTO ads(user_id, title, description ) VALUES (5, 'Shot gun', 'Selling for a friend.  Used a few times, but not correctly.     decided on peace.   Need gone ASAP!  $800  OBO');
+
