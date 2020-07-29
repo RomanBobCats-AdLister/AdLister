@@ -28,10 +28,16 @@
                 <p>Username: ${user.username}</p>
                 <p>Email: ${user.email}</p>
                 <a href ="/updateProfile">Edit Info</a>
-                <a href ="/deleteProfile">Delete Profile</a>
+<%--                <a href ="/deleteProfile">Delete Profile</a>--%>
+
             </div>
         </div>
     </div>
+
+    <form action="/deleteProfile"  method="post">
+        <input type="hidden" name ="userId" value="${user.id}">
+        <input type="submit" name ="deleteAccount" value="Delete this Account" class="btn btn-block btn-primary">
+    </form>
 
     <div>
         <h4>Here are your Ads!</h4>
