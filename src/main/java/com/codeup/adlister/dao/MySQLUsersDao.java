@@ -70,6 +70,7 @@ public class MySQLUsersDao implements Users {
 
     }
 
+
     @Override
     public User findByID(Long id) {
         String idQuery = "SELECT * FROM users WHERE id = ?";
@@ -86,6 +87,7 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding the ad id", e);
         }
     }
+
 
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
