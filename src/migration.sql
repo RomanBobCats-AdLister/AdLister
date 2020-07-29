@@ -12,6 +12,12 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE categories (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    category VARCHAR(240) NOT NULL,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     cat_id INT UNSIGNED NOT NULL,
@@ -22,9 +28,5 @@ CREATE TABLE ads (
         ON DELETE CASCADE
 );
 
-CREATE TABLE categories (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    category VARCHAR(240) NOT NULL,
-    PRIMARY KEY (id)
-);
+
 

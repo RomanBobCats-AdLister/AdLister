@@ -36,10 +36,10 @@ public class MySQLCategoryDao implements Categories {
 
     @Override
     public Long insert(Category category) {
-        String query = "INSERT INTO categories(user_id, category) VALUES (?, ?)";
+        String query = "INSERT INTO categories(id, category) VALUES (?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, category.getUserId());
+            stmt.setLong(1, category.getId());
             stmt.setString(2, category.getCategory());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
