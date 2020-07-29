@@ -18,3 +18,13 @@ INSERT INTO ads(user_id, title, description ) VALUES (2, 'Blond Wig', 'Used a fe
 
 
 INSERT INTO ads(user_id, title, description ) VALUES (3, 'Shot gun', 'Selling for a friend.  Used a few times, but not correctly.     decided on peace.   Need gone ASAP!  $800  OBO');
+
+INSERT INTO users(username, email, password) VALUES ('sparrowJ', 'black_pearl@pirates.com', 'treasure');
+
+INSERT INTO ads(user_id, title, description ) VALUES (4, 'A Jar of Dirt', 'Missing Davey Jones heart, but great condition.   10 gold coins OBO');
+
+INSERT INTO ads(user_id, title, description ) VALUES (4, 'Annoying Monkey', 'Impossible to kill.  Loves to steal.   1 gold coin OBO');
+
+INSERT INTO users(username, email, password) VALUES ('parrH', 'elastigirl@incredibles.com', 'strecthy2000');
+
+INSERT INTO ads(user_id, title, description ) VALUES (5, 'Super Suit', 'Gray, designed by Alexander Galbaki.  Has a small tear on left shoulder.  Easliy mendable.  Asking $150 OBO');
