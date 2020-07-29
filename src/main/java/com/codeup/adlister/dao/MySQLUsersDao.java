@@ -70,6 +70,24 @@ public class MySQLUsersDao implements Users {
 
     }
 
+//    @Override
+//    public User findByID(Long id) {
+//        String idQuery = "SELECT * FROM users WHERE id = ?";
+//        try{
+//            PreparedStatement statement = connection.prepareStatement(idQuery);
+//            statement.setLong(1, id);
+//            ResultSet rs = statement.executeQuery();
+//            if (! rs.next()) {
+//                return null;
+//            }
+//            return extractUser(rs);
+//        }catch(SQLException e){
+//            throw new RuntimeException("Error finding the ad id", e);
+//        }
+//    }
+
+
+
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;

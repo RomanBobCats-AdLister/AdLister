@@ -16,13 +16,19 @@
         <div class="content">
             <h1>Welcome, ${sessionScope.user.username}!</h1>
             <div class="column is-two-thirds">
-                <img alt="profilePic" class="profilePic" src="pictures/batman.jpeg">
+                <br>
+                <br>
+                <br>
+
+<%--                tried profile pic --%>
+<%--                <img alt="profilePic" class="profilePic" src="pictures/batman.jpeg">--%>
             </div>
             <div class="column is-one-third">
                 <h5>Profile Info</h5>
                 <p>Username: ${user.username}</p>
                 <p>Email: ${user.email}</p>
                 <a href ="/updateProfile">Edit Info</a>
+                <a href ="/deleteProfile">Delete Profile</a>
             </div>
         </div>
     </div>
