@@ -37,9 +37,10 @@ public class UpdateAdServlet extends HttpServlet {
         System.out.println("updateAd = " + updateAd);
         System.out.println(adId);
 
+//        UPDATING THE TITLE AND DESCRIPTION
         if (adTitle != null) {
             Ad updateTitle = DaoFactory.getAdsDao().editAdTitle(adId, adTitle);
-//                resp.sendRedirect("/ads");
+
         }
         if (adDescription != null) {
             Ad updateDescription = DaoFactory.getAdsDao().editAdDescription(adId, adDescription);

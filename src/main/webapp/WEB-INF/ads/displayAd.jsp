@@ -21,20 +21,22 @@
     <div>
     <p>${ad.description} </p>
     </div>
-<%--    <form action="/ads/updateAd" method="get" >--%>
-<%--        <input type="hidden" name ="sellerInfo" value="${ad.id}">--%>
-<%--        <input type="submit" value="View Seller contact info" class="btn btn-block btn-primary">--%>
-<%--    </form>--%>
+
+    <h5>${user.username}, email:  ${user.email}</h5>
     <br>
-    <form action="/ads/updateAd" method="get" >
-        <input type="hidden" name ="adToUpdate" value="${ad.id}">
-    <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
-    </form>
-    <br>
-    <form action="/ads/deleteAd"  method="post">
-        <input type="hidden" name ="adToDelete" value="${ad.id}">
-    <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
-    </form>
+    <c:choose>
+        <c:if test="${user.getId() eq ad.userId}">
+            <form action="/ads/updateAd" method="get" >
+                <input type="hidden" name ="adToUpdate" value="${ad.id}">
+                <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
+            </form>
+            <br>
+            <form action="/ads/deleteAd"  method="post">
+                <input type="hidden" name ="adToDelete" value="${ad.id}">
+                <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
+            </form>
+        </c:if>
+    </c:choose>
 </div>
 
 </body>
