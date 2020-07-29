@@ -142,6 +142,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // may need to modify this to get the category from add
     private Ad extractAd(ResultSet rs) throws SQLException {
 
         return new Ad(
@@ -151,6 +152,7 @@ public class MySQLAdsDao implements Ads {
             rs.getString("description")
         );
     }
+
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();

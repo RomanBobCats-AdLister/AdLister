@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
@@ -29,6 +31,10 @@ public class LoginServlet extends HttpServlet {
         if (user == null) {
             response.sendRedirect("/login");
             return;
+        }
+
+        if (!"password".equals(password)){
+            showMessageDialog(null, "wrong password");
         }
 
         boolean validAttempt = Password.check(password, user.getPassword());

@@ -35,13 +35,6 @@
         <a href = "/displayAd?id=${ad.id}">View ad details</a>
         </c:forEach>
     </div>
-    <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-            location.href = "/ads/create";
-        };
-    </script>
-
 
 </div>
 
