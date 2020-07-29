@@ -12,12 +12,8 @@
                     <li><a href="/ads">View Ads</a></li>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/logout">Logout</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/ads">Ads</a></li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="/ads">View Ads</a></li>
-                    <li><a href="/register">Resgister</a></li>
                     <li><a href="/login">Login</a></li>
                     <li><a href="/register">Register</a></li>
                 </c:otherwise>
