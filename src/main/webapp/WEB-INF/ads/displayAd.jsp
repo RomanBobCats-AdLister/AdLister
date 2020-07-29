@@ -21,6 +21,11 @@
     <div>
     <p>${ad.description} </p>
     </div>
+<%--    <form action="/ads/updateAd" method="get" >--%>
+<%--        <input type="hidden" name ="sellerInfo" value="${ad.id}">--%>
+<%--        <input type="submit" value="View Seller contact info" class="btn btn-block btn-primary">--%>
+<%--    </form>--%>
+    <br>
     <form action="/ads/updateAd" method="get" >
         <input type="hidden" name ="adToUpdate" value="${ad.id}">
     <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
