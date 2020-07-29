@@ -25,6 +25,8 @@ CREATE TABLE ads (
     description TEXT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (cat_id) REFERENCES categories(id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (id) REFERENCES users(id)
         ON DELETE CASCADE
 );
 

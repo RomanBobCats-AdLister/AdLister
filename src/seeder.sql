@@ -1,6 +1,5 @@
 use adlister_db;
 show create table users;
-delete from ads where user_id = 3;
 
 use adlister_db;
 TRUNCATE ads;
@@ -31,3 +30,22 @@ INSERT INTO ads(user_id, title, description ) VALUES (4, 'Super Suit', 'Gray, de
 INSERT INTO ads(user_id, title, description ) VALUES (5, 'Shot gun', 'Selling for a friend.  Used a few times, but not correctly.     decided on peace.   Need gone ASAP!  $800  OBO');
 
 insert into categories(id, category) values (1, 'test');
+insert into categories(id, category) values (2, 'Collectible');
+insert into categories(id, category) values (3, 'Music');
+insert into categories(id, category) values (4, 'Test');
+insert into categories(id, category) values (5, 'Other');
+
+Update categories
+Set Category = 'Music'
+where id = 2;
+Update categories
+Set Category = 'Art'
+where id = 3;
+Update categories
+Set Category = 'Test'
+where id = 4;
+Update categories
+Set Category = 'Other'
+where id = 5;
+
+DELETE from categories where category = 'test';
