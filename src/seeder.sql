@@ -30,3 +30,4 @@ INSERT INTO ads(user_id, title, description ) VALUES (4, 'Super Suit', 'Gray, de
 
 INSERT INTO ads(user_id, title, description ) VALUES (5, 'Shot gun', 'Selling for a friend.  Used a few times, but not correctly.     decided on peace.   Need gone ASAP!  $800  OBO');
 
+insert into categories(id, category) values (1, 'test');

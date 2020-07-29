@@ -27,8 +27,8 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
 
         Category category = new Category(
-            user.getId(),
-            request.getParameter("category")
+                1,
+                "test"
         );
 
 
@@ -36,9 +36,12 @@ public class CreateAdServlet extends HttpServlet {
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
-            request.getParameter("description")
+            request.getParameter("description"),
+                category
         );
-        DaoFactory.getCategoryDao().insert(category);
+        // this code is good but currently breaks it
+        //because we hardcoded a category in
+//        DaoFactory.getCategoryDao().insert(category);
 
         DaoFactory.getAdsDao().insert(ad);
 

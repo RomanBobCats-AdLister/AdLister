@@ -12,7 +12,7 @@ public interface Ads {
 
     Ad findById(long id);
 
-    List<Ad> adsByUser(long userId);
+    List<Ad> adsByUser(long Id);
 
 
    Ad editAdTitle(long id, String title);

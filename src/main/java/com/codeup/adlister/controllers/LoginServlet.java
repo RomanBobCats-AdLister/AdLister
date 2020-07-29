@@ -33,9 +33,9 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        if (!"password".equals(password)){
-            showMessageDialog(null, "wrong password");
-        }
+//        if (!"password".equals(password)){
+//            showMessageDialog(null, "wrong password");
+//        }
 
         boolean validAttempt = Password.check(password, user.getPassword());
 

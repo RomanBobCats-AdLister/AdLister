@@ -13,18 +13,31 @@ public class Ad {
         this.title = title;
         this.description = description;
     }
+    // add a category to this
+    public Ad(String title, String description, Category category) {
+        this.title = title;
+        this.description = description;
+        this.category = category;
+    }
 
-    public Ad(long userId, String title, String description) {
-        this.userId = userId;
+    public Ad(long id, String title, String description, Category category) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+    }
+
+    public Ad(long id, String title, String description) {
+        this.id = id;
         this.title = title;
         this.description = description;
     }
 
-    public Ad(long id, long userId, String title, String description, Category category) {
-        this.id = id;
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
         this.category = category;
     }
 
