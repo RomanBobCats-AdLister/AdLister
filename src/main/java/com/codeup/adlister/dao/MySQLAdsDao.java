@@ -26,7 +26,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> adsByUser(long id) {
         PreparedStatement stmt = null;
         try {
-            String insertQuery = "SELECT * FROM ads WHERE id = ?";
+            String insertQuery = "SELECT * FROM ads WHERE  user_id = ?";
             stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
