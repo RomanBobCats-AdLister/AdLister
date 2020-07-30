@@ -65,4 +65,5 @@ Set Category = 'Other'
 where id = 5;
 
 DELETE from categories where category = 'test';
+DELETE FROM ads WHERE user_id = 1;
 >>>>>>> master

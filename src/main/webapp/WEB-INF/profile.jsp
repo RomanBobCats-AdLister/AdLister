@@ -44,6 +44,15 @@
         <c:forEach var="ad" items="${ads}">
         <h5>${ad.title}</h5>
         <p>${ad.description}</p>
+            <form action="/ads/updateAd" method="get" >
+                <input type="hidden" name ="adToUpdate" value="${ad.id}">
+                <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
+            </form>
+            <br>
+            <form action="/ads/deleteAd"  method="post">
+                <input type="hidden" name ="adToDelete" value="${ad.id}">
+                <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
+            </form>
         <a href = "/displayAd/${ad.id}">View ad details</a>
         </c:forEach>
     </div>
