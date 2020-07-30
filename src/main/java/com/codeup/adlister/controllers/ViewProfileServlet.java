@@ -20,10 +20,10 @@ public class ViewProfileServlet extends HttpServlet {
 
         //for user
         User userSession = (User)request.getSession().getAttribute("user");
-//        User currentUser = DaoFactory.getUsersDao().findByUsername(userSession.getUsername());
+        User currentUser = DaoFactory.getUsersDao().findByUsername(userSession.getUsername());
 
-
-//        request.getSession().setAttribute("user", userSession );
+        //need currentUser to update email information when redirected back to the profile page
+        request.getSession().setAttribute("user", currentUser );
 
 
         //for adds
