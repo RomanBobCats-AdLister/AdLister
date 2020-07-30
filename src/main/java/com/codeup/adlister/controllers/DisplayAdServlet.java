@@ -20,6 +20,7 @@ public class DisplayAdServlet extends HttpServlet{
         User user = (User) req.getSession().getAttribute("user");
         long adId = Long.parseLong(req.getParameter("id"));
         Ad ad = DaoFactory.getAdsDao().findById(adId);
+        req.setAttribute("user", DaoFactory.getUsersDao().findByID(user.getId()));
 
 
 
