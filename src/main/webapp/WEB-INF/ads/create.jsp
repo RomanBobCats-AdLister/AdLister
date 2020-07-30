@@ -21,7 +21,14 @@
             </div>
             <div class="form-group">
                 <label for="category">Select category</label>
-                <textarea id="category" name="category" class="form-control" type="text"></textarea>
+<%--                <textarea id="category" name="category" class="form-control" type="text"></textarea>--%>
+                <select id="category" name="id">
+                    <option value="2">Collectible</option>
+                    <option value="3">Music</option>
+                    <option value="4">Art</option>
+                    <option value="1">Test</option>
+                    <option value="5">Other</option>
+                </select>
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>

@@ -17,6 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <br>
 <div class="container">
+    <input type="hidden" name ="currentAd" value="${ad.id}">
     <h1>${ad.title} Details!</h1>
     <div>
     <p>${ad.description} </p>
@@ -25,7 +26,7 @@
     <h5>${user.username}, email:  ${user.email}</h5>
     <br>
     <c:choose>
-        <c:if test="${user.getId() eq ad.userId}">
+        <c:when test="${sessionScope.user.getId() eq sessionScope.ad.userId}">
             <form action="/ads/updateAd" method="get" >
                 <input type="hidden" name ="adToUpdate" value="${ad.id}">
                 <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
@@ -35,7 +36,7 @@
                 <input type="hidden" name ="adToDelete" value="${ad.id}">
                 <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
             </form>
-        </c:if>
+        </c:when>
     </c:choose>
 </div>
 
