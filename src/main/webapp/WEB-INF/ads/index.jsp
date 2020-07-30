@@ -25,7 +25,7 @@
             <h2>Description:
             <textarea class="form-control rounded-0">${ad.description}</textarea>
             </h2>
-            <a href = "/displayAd?id=${ad.id}">View ad details</a>
+            <a href = "/displayAd/${ad.id}">View ad details</a>
 
         </div>
 <%--        </div>--%>

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface Categories {
     List<Categories> all();
-    User findByUsername(String username);
+    Category findByCategory(String categoryName);
     Long insert(Category category);
-
+    Category findById(long id);
 
 
 }

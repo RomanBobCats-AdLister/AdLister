@@ -28,17 +28,23 @@
                 <p>Username: ${user.username}</p>
                 <p>Email: ${user.email}</p>
                 <a href ="/updateProfile">Edit Info</a>
-                <a href ="/deleteProfile">Delete Profile</a>
+<%--                <a href ="/deleteProfile">Delete Profile</a>--%>
+
             </div>
         </div>
     </div>
+
+    <form action="/deleteProfile"  method="post">
+        <input type="hidden" name ="userId" value="${user.id}">
+        <input type="submit" name ="deleteAccount" value="Delete this Account" class="btn btn-block btn-primary">
+    </form>
 
     <div>
         <h4>Here are your Ads!</h4>
         <c:forEach var="ad" items="${ads}">
         <h5>${ad.title}</h5>
         <p>${ad.description}</p>
-        <a href = "/displayAd?id=${ad.id}">View ad details</a>
+        <a href = "/displayAd/${ad.id}">View ad details</a>
         </c:forEach>
     </div>
     <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
