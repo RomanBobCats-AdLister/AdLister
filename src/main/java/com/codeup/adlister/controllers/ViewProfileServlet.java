@@ -26,7 +26,7 @@ public class ViewProfileServlet extends HttpServlet {
         request.getSession().setAttribute("user", currentUser );
 
 
-        //for adds
+
         User user = (User)request.getSession().getAttribute("user");
         request.setAttribute("ads", DaoFactory.getAdsDao().adsByUser(user.getId()));
 
