@@ -38,7 +38,7 @@
         <c:forEach var="ad" items="${ads}">
         <h5>${ad.title}</h5>
         <p>${ad.description}</p>
-        <a href = "/displayAd?id=${ad.id}">View ad details</a>
+        <a href = "/displayAd/${ad.id}">View ad details</a>
         </c:forEach>
     </div>
     <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
