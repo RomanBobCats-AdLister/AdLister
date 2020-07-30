@@ -32,6 +32,7 @@ public class ViewProfileServlet extends HttpServlet {
 
 
 
+
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
 }

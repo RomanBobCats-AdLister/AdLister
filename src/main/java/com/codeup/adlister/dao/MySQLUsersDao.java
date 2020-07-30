@@ -1,4 +1,5 @@
 package com.codeup.adlister.dao;
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -67,9 +68,16 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public void deleteUser(Long id) {
-
+        String deleteUserQuery = "DELETE FROM users WHERE id = ?";
+        try{
+            PreparedStatement statement = connection.prepareStatement(deleteUserQuery);
+            statement.setLong(1, id);
+            boolean confirmDeletion = statement.execute();
+            System.out.println(confirmDeletion);;
+        }catch(SQLException e){
+            throw new RuntimeException("Error. Unable to delete User.", e);
+        }
     }
-
 
     @Override
     public User findByID(Long id) {
