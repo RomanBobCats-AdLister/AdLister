@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 
 @WebServlet(name = "controllers.DisplayAdServlet", urlPatterns = "/displayAd/*")
 public class DisplayAdServlet extends HttpServlet{
@@ -25,9 +26,13 @@ public class DisplayAdServlet extends HttpServlet{
         User user = (User) req.getSession().getAttribute("user");
         String adId = req.getPathInfo().substring(1);
         Ad ad = DaoFactory.getAdsDao().findById(parseInt((adId)));
+        System.out.println(ad.getUserId());
 
+        User adUser = DaoFactory.getUsersDao().findByID(ad.getUserId());
+//        User adUser = DaoFactory.getUsersDao().findByUsername("stitch808");
         req.setAttribute("ad", ad);
         req.setAttribute("user", user);
+        req.setAttribute("adUser", adUser);
 
         req.getRequestDispatcher("/WEB-INF/ads/displayAd.jsp").forward(req, resp);
     }

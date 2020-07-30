@@ -8,6 +8,13 @@ public class Ad {
     private Category category;
     private String categories;
 
+    public Ad(long userId, int id, String title, String description, Category category) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+    }
 
     public Ad(long userId, String title, String description, Category category) {
         this.userId = userId;

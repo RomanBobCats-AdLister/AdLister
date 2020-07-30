@@ -16,52 +16,31 @@
 
 <div class="container">
     <h1 class="text-center">Here Are all the ads!</h1>
-<%--    <div class ="row">--%>
+<%--SEARCH BAR--%>
+    <div class="col-md-6">
+        <h3>Looking for something specific?</h3>
+        <br>
+        <form action="/ads" method="post">
+            <input type="text" id="ad" name="ad" placeholder="Search">
+            <button>Search</button>
+        </form>
+    </div>
+
+<%--    ALL ADS--%>
     <c:forEach var="ad" items="${ads}">
 
         <div class="col-md-6">
 
-            <h2>Title: ${ad.title}</h2>
-            <h2>Description:
+            <h2> ${ad.title}</h2>
+            <h2>
             <textarea class="form-control rounded-0">${ad.description}</textarea>
             </h2>
             <a href = "/displayAd/${ad.id}">View ad details</a>
 
         </div>
-<%--        </div>--%>
-
     </c:forEach>
 
-<%--<tr class="col-md-4">--%>
-    <div class="col-md-6">
-        <ul>
-            <li>
-                <div>
-                    <h3>Looking for something specific?</h3>
-                </div>
-            </li>
-            <li>
-                <form action="/ads" method="post">
-                    <input type="text" id="ad" name="ad" placeholder="Search">
-                    <button>Search</button>
-                </form>
-            </li>
-        </ul>
-    </div>
-</div>
-<%--    <c:if test="${ads != null}">--%>
-<%--        <h1>Displaying results for <c:out value="${searchQuery}"/> </h1>--%>
-<%--        <table>--%>
-<%--            <th>Title</th>--%>
-<%--            <th>Description</th>--%>
-<%--            <c:forEach items="${ads}" var="ad">--%>
-<%--                <tr>--%>
-<%--                    <td>${ad.title}</td>--%>
-<%--                    <td>${ad.description}</td>--%>
-<%--                </tr>--%>
-<%--            </c:forEach>--%>
-<%--        </table>--%>
-<%--    </c:if>--%>
+
 </div>
 
 
