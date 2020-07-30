@@ -26,15 +26,20 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
     String email = request.getParameter("email");
     String password = request.getParameter("password");
-
-    String hashPassword =Password.hash(password);
-//    System.out.println(hashPassword);
+    User user = (User)request.getSession().getAttribute("user");
+    String currentPassword = user.getPassword();
+    System.out.println("current password = " + currentPassword);
+    System.out.println("new Password = " + password);
 
     Long id = Long.parseLong(request.getParameter("id"));
-    DaoFactory.getUsersDao().editUser(id, email,hashPassword);
 
-
-
+    if (password.equals(currentPassword)) {
+        DaoFactory.getUsersDao().editUser(id, email, currentPassword);
+    }
+    else {
+        String hashedPassword = Password.hash(password);
+        DaoFactory.getUsersDao().editUser(id,email, hashedPassword);
+    }
 
     response.sendRedirect("/profile");
 

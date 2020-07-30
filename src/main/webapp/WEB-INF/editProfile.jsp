@@ -36,8 +36,7 @@
                         <label for="email">Password</label>
                     <div class="control">
                     <input id="password" name="password" class="input is-rounded" type="password" value="${user.password}">
-        <%--    tried to edit user name--%>
-        <%--                <input id="username" name="username" class="input is-rounded" type="text" value="${user.username}">--%>
+
                     </div>
                 </div>
 
