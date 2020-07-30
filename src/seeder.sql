@@ -32,8 +32,10 @@ INSERT INTO ads(user_id, title, description ) VALUES (5, 'Shot gun', 'Selling fo
 insert into categories(id, category) values (1, 'test');
 insert into categories(id, category) values (2, 'Collectible');
 insert into categories(id, category) values (3, 'Music');
-insert into categories(id, category) values (4, 'Test');
+insert into categories(id, category) values (4, 'Art');
 insert into categories(id, category) values (5, 'Other');
+
+insert into ads(cat_id, user_id, title, description) values (2, 1, 'shirt', 'really soft');
 
 Update categories
 Set Category = 'Music'

@@ -20,23 +20,19 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-            .forward(request, response);
+                .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
 
-        Category category = new Category(
-                1,
-                "test"
-        );
-
-
+        long catId = Long.parseLong(request.getParameter("id"));
+        Category category = DaoFactory.getCategoryDao().findById(catId);
 
         Ad ad = new Ad(
-            user.getId(),
-            request.getParameter("title"),
-            request.getParameter("description"),
+                user.getId(),
+                request.getParameter("title"),
+                request.getParameter("description"),
                 category
         );
         // this code is good but currently breaks it

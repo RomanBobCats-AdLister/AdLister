@@ -14,15 +14,14 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
     @Override
     public List<Ad> adsByUser(long id) {
         PreparedStatement stmt = null;
@@ -69,11 +68,12 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(title, description, cat_id) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(title, user_id, description, cat_id) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, ad.getTitle());
-            stmt.setString(2, ad.getDescription());
-            stmt.setLong(3, ad.getCategory().getId());
+            stmt.setLong(2, ad.getUserId());
+            stmt.setString(3, ad.getDescription());
+            stmt.setLong(4, ad.getCategory().getId());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -85,22 +85,22 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Ad findById(long id) {
-       String idQuery = "SELECT * FROM ads WHERE id = ?";
-       try{
-           PreparedStatement statement = connection.prepareStatement(idQuery);
-           statement.setLong(1, id);
-           ResultSet rs = statement.executeQuery();
-           if (! rs.next()) {
-               return null;
-           }
-           return extractAd(rs);
+        String idQuery = "SELECT * FROM ads WHERE id = ?";
+        try{
+            PreparedStatement statement = connection.prepareStatement(idQuery);
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (! rs.next()) {
+                return null;
+            }
+            return extractAd(rs);
 
-       }catch(SQLException e){
-           throw new RuntimeException("Error finding the ad id", e);
-       }
+        }catch(SQLException e){
+            throw new RuntimeException("Error finding the ad id", e);
+        }
     }
 
-@Override
+    @Override
     public Ad editAdTitle(long id, String title) {
         findById(id);
         String editAdQuery = "UPDATE ads SET title = ? WHERE id = ? ";
@@ -108,7 +108,7 @@ public class MySQLAdsDao implements Ads {
             PreparedStatement statement = connection.prepareStatement(editAdQuery);
             statement.setString(1, title);
             statement.setLong(2, id);
-             statement.executeUpdate();
+            statement.executeUpdate();
             return null;
         }catch(SQLException e){
             throw new RuntimeException("Error updating the ad title", e);
@@ -137,7 +137,7 @@ public class MySQLAdsDao implements Ads {
         try{
             PreparedStatement statement = connection.prepareStatement(deleteAdQuery);
             statement.setLong(1, id);
-             boolean confirmDeletion = statement.execute();
+            boolean confirmDeletion = statement.execute();
             return null;
         }catch(SQLException e){
             throw new RuntimeException("Error. Unable to delete ad.", e);
@@ -148,13 +148,13 @@ public class MySQLAdsDao implements Ads {
     private Ad extractAd(ResultSet rs) throws SQLException {
 
         return new Ad(
-            rs.getLong("id"),
-            rs.getString("title"),
-            rs.getString("description"),
+                rs.getLong("id"),
+                rs.getString("title"),
+                rs.getString("description"),
                 new Category(
-                1,
-                "test"
-        )
+                        1,
+                        "test"
+                )
 
         );
     }
@@ -168,4 +168,3 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 }
-

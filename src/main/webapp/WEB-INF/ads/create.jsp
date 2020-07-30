@@ -22,12 +22,12 @@
             <div class="form-group">
                 <label for="category">Select category</label>
 <%--                <textarea id="category" name="category" class="form-control" type="text"></textarea>--%>
-                <select id="category">
-                    <option value="collectible">Collectible</option>
-                    <option value="Music">Music</option>
-                    <option value="Art">Art</option>
-                    <option value="Test">Test</option>
-                    <option value="Other">Other</option>
+                <select id="category" name="id">
+                    <option value="2">Collectible</option>
+                    <option value="3">Music</option>
+                    <option value="4">Art</option>
+                    <option value="1">Test</option>
+                    <option value="5">Other</option>
                 </select>
             </div>
             <input type="submit" class="btn btn-block btn-primary">

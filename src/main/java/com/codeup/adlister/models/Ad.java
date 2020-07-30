@@ -6,31 +6,24 @@ public class Ad {
     private String title;
     private String description;
     private Category category;
+    private String categories;
 
-    public Ad(long id, long userId, String title, String description) {
-        this.id = id;
+
+    public Ad(long userId, String title, String description, Category category) {
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.category = category;
     }
     // add a category to this
-    public Ad(String title, String description, Category category) {
-        this.title = title;
-        this.description = description;
-        this.category = category;
+
+
+    public String getCategories() {
+        return categories;
     }
 
-    public Ad(long id, String title, String description, Category category) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.category = category;
-    }
-
-    public Ad(long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 
     public Category getCategory() {

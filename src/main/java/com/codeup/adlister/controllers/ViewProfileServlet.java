@@ -20,15 +20,15 @@ public class ViewProfileServlet extends HttpServlet {
 
         //for user
         User userSession = (User)request.getSession().getAttribute("user");
-        User currentUser = DaoFactory.getUsersDao().findByUsername(userSession.getUsername());
+//        User currentUser = DaoFactory.getUsersDao().findByUsername(userSession.getUsername());
 
 
-        request.getSession().setAttribute("user", currentUser );
+//        request.getSession().setAttribute("user", userSession );
 
 
         //for adds
-        User user = (User)request.getSession().getAttribute("user");
-        request.setAttribute("ads", DaoFactory.getAdsDao().adsByUser(user.getId()));
+//        User user = (User)request.getSession().getAttribute("user");
+        request.setAttribute("ads", DaoFactory.getAdsDao().adsByUser(userSession.getId()));
 
 
 

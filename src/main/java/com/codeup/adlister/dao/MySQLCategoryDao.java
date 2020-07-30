@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.models.Category;
 
@@ -25,14 +26,44 @@ public class MySQLCategoryDao implements Categories {
     }
 
     @Override
+    public Category findByCategory(String categoryName) {
+        String query = "SELECT * FROM categories WHERE category = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, categoryName);
+            return extractCategory(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a category", e);
+        }
+    }
+
+    public Category findById(long id) {
+//        String idQuery = "SELECT * FROM categories WHERE id = ?";
+        try{
+            Statement statement = connection.createStatement();
+//            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery("SELECT * FROM categories WHERE id = " + id);
+            if (! rs.next()) {
+                return null;
+            }
+            return extractCategory(rs);
+
+        }catch(SQLException e){
+            throw new RuntimeException("Error finding the category id", e);
+        }
+    }
+
+    private Category extractCategory(ResultSet rs) throws SQLException {
+        return new Category(
+                rs.getLong("id"),
+                rs.getString("category"));
+    }
+
+    @Override
     public List<Categories> all() {
         return null;
     }
 
-    @Override
-    public User findByUsername(String username) {
-        return null;
-    }
 
     @Override
     public Long insert(Category category) {
