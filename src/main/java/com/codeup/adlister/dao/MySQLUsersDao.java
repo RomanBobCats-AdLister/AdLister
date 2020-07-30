@@ -96,6 +96,30 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public User findByAdId(int id) {
+        String subQuery = "(SELECT user_id from ads)";
+        String query = "SELECT username, email FROM users WHERE id =?";
+        ;
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, subQuery);
+            ResultSet rs = stmt.executeQuery();
+            if (! rs.next()) {
+                return null;
+            }
+            return new User(
+                    rs.getLong("id"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password")
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
+        }
+    }
+
+
 
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {

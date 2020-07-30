@@ -19,6 +19,9 @@ public class DisplayAdServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+
+
         User user = (User) req.getSession().getAttribute("user");
         String adId = req.getPathInfo().substring(1);
         Ad ad = DaoFactory.getAdsDao().findById(parseInt((adId)));

@@ -11,4 +11,5 @@ public interface Users {
     void editUser(Long id, String email, String password);
     void deleteUser(Long id);
     User findByID(Long id);
+    User findByAdId(int id);
 }

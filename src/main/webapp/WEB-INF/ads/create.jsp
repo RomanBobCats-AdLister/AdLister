@@ -19,15 +19,19 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+
+<%--            CATEGORY DROPDOWN LIST--%>
             <div class="form-group">
                 <label for="category">Select category</label>
 <%--                <textarea id="category" name="category" class="form-control" type="text"></textarea>--%>
                 <select id="category" name="id">
-                    <option value="2">Collectible</option>
-                    <option value="3">Music</option>
-                    <option value="4">Art</option>
-                    <option value="1">Test</option>
-                    <option value="5">Other</option>
+                    <option value="1">clothing</option>
+                    <option value="2">vehicles</option>
+                    <option value="3">collectibles</option>
+                    <option value="4">pets</option>
+                    <option value="5">household</option>
+                    <option value="6">beauty</option>
+                    <option value="7">misc</option>
                 </select>
             </div>
             <input type="submit" class="btn btn-block btn-primary">
@@ -35,3 +39,21 @@
     </div>
 </body>
 </html>
+
+<%--                <label for="category">--%>
+<%--                    <select id="category" name="id">--%>
+<%--                        <c:forEach  items="${categories}" var="category">--%>
+<%--                             <option value="${category.id}" > ${category}</option>--%>
+<%--                            <h2>${category}</h2>--%>
+<%--                         </c:forEach>--%>
+<%--                 </select>--%>
+<%--&lt;%&ndash;                </label>&ndash;%&gt;--%>
+<%--<textarea id="category" name="category" class="form-control" type="text"></textarea>--%>
+<%--<select id="category" name="id">--%>
+<%--    <option value="1">clothing</option>--%>
+<%--    <option value="2">vehicles</option>--%>
+<%--    <option value="3">collectibles</option>--%>
+<%--    <option value="4">pets</option>--%>
+<%--    <option value="5">household</option>--%>
+<%--    <option value="6">beauty</option>--%>
+<%--    <option value="7">misc</option>--%>
