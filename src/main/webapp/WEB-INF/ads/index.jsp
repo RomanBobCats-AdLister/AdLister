@@ -45,6 +45,10 @@
                     <input type="text" id="ad" name="ad" placeholder="Search">
                     <button>Search</button>
                 </form>
+<%--                <form action="/searchedAds" method="post">--%>
+<%--                    <input type="text" id="category" name="category" placeholder="Search categories">--%>
+<%--                    <button>Search</button>--%>
+<%--                </form>--%>
             </li>
         </ul>
     </div>

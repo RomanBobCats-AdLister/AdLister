@@ -38,6 +38,8 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+
     @Override
     public List<Ad> search(String query) {
         PreparedStatement stmt = null;
@@ -55,6 +57,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving from query", e);
         }
     }
+
     @Override
     public List<Ad> all() {
         PreparedStatement stmt = null;

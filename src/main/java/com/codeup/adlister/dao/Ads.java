@@ -21,4 +21,5 @@ public interface Ads {
     Ad deleteAd(long id);
     List<Ad> search(String query);
 
+
 }

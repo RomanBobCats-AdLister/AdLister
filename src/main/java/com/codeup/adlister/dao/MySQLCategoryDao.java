@@ -7,6 +7,7 @@ import com.codeup.adlister.models.Category;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLCategoryDao implements Categories {
@@ -35,6 +36,31 @@ public class MySQLCategoryDao implements Categories {
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a category", e);
         }
+    }
+
+    public List<Category> searchCategory(String query) {
+        PreparedStatement stmt = null;
+        String sqlQuery = ("SELECT * FROM categories WHERE category LIKE ?");
+        String categorySearch = "%" + query + "%";
+
+        try {
+            stmt = connection.prepareStatement(sqlQuery);
+            stmt.setString(1, categorySearch);
+
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            return createCategoryFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving from query", e);
+        }
+    }
+
+    private List<Category> createCategoryFromResults(ResultSet rs) throws SQLException {
+        List<Category> category = new ArrayList<>();
+        while (rs.next()) {
+            category.add(extractCategory(rs));
+        }
+        return category;
     }
 
     public Category findById(long id) {

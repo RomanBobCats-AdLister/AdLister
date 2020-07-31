@@ -23,6 +23,10 @@ public class AdsIndexServlet extends HttpServlet {
         String searchQuery = request.getParameter("ad");
         request.setAttribute("ads", DaoFactory.getAdsDao().search(searchQuery));
         request.setAttribute("searchQuery", searchQuery);
+
+        String searchCategory = request.getParameter("category");
+        request.setAttribute("categories", DaoFactory.getCategoryDao().searchCategory(searchCategory));
+        request.setAttribute("searchQuery", searchQuery);
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
 }
