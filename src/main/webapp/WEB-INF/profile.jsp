@@ -30,40 +30,44 @@
                 <a href ="/updateProfile">Edit Info</a>
 <%--                <a href ="/deleteProfile">Delete Profile</a>--%>
 
-            </div>
+
         </div>
     </div>
 
     <form action="/deleteProfile"  method="post">
         <input type="hidden" name ="userId" value="${user.id}">
-        <input type="submit" name ="deleteAccount" value="Delete this Account" class="btn btn-block btn-primary">
+        <input type="submit" name ="deleteAccount" value="Delete this Account" class="btn btn-primary">
     </form>
+</div>
+
+
+<button id="myButton" class="btn btn-primary " >Create a new ad</button>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/ads/create";
+    };
+</script>
 
     <div>
         <h4>Here are your Ads!</h4>
         <c:forEach var="ad" items="${ads}">
         <h5>${ad.title}</h5>
         <p>${ad.description}</p>
+
+            <a href = "/displayAd/${ad.id}">View ad details</a>
+
             <form action="/ads/updateAd" method="get" >
                 <input type="hidden" name ="adToUpdate" value="${ad.id}">
-                <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
+                <input type="submit" value="Edit this ad" class="btn btn-primary ">
             </form>
-            <br>
             <form action="/ads/deleteAd"  method="post">
                 <input type="hidden" name ="adToDelete" value="${ad.id}">
-                <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
+                <input type="submit" name ="deleteAd" value="Delete this ad" class="btn  btn-primary">
             </form>
-        <a href = "/displayAd/${ad.id}">View ad details</a>
-        </c:forEach>
-    </div>
-    <button id="myButton" class="btn btn-primary btn-block" >Create a new ad</button>
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-            location.href = "/ads/create";
-        };
-    </script>
-</div>
 
+        </c:forEach>
+
+    </div>
 </body>
 </html>
 

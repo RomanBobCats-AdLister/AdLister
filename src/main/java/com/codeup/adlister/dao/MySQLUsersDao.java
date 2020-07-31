@@ -85,11 +85,11 @@ public class MySQLUsersDao implements Users {
         try{
             PreparedStatement statement = connection.prepareStatement(idQuery);
             statement.setLong(1, id);
-            ResultSet rs = statement.executeQuery();
-            if (! rs.next()) {
-                return null;
-            }
-            return extractUser(rs);
+           return extractUser(statement.executeQuery());
+//            if (! rs.next()) {
+//                return null;
+//            }
+//            return extractUser(rs);
 
         }catch(SQLException e){
             throw new RuntimeException("Error finding the ad id", e);

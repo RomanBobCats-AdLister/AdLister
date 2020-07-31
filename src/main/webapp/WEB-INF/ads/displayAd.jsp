@@ -23,21 +23,23 @@
     <p>${ad.description} </p>
     </div>
 
-    <h5>${user.username}, email:  ${user.email}</h5>
+    <h5>Seller Info:  ${adUser.username},
+        <br>
+        email:  ${adUser.email}</h5>
     <br>
-    <c:choose>
-        <c:when test="${sessionScope.user.getId() eq sessionScope.ad.userId}">
-            <form action="/ads/updateAd" method="get" >
-                <input type="hidden" name ="adToUpdate" value="${ad.id}">
-                <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">
-            </form>
-            <br>
-            <form action="/ads/deleteAd"  method="post">
-                <input type="hidden" name ="adToDelete" value="${ad.id}">
-                <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">
-            </form>
-        </c:when>
-    </c:choose>
+<%--    <c:choose>--%>
+<%--        <c:when test="${sessionScope.user.getId() eq sessionScope.ad.userId}">--%>
+<%--            <form action="/ads/updateAd" method="get" >--%>
+<%--                <input type="hidden" name ="adToUpdate" value="${ad.id}">--%>
+<%--                <input type="submit" value="Edit this ad" class="btn btn-block btn-primary">--%>
+<%--            </form>--%>
+<%--            <br>--%>
+<%--            <form action="/ads/deleteAd"  method="post">--%>
+<%--                <input type="hidden" name ="adToDelete" value="${ad.id}">--%>
+<%--                <input type="submit" name ="deleteAd" value="Delete this ad" class="btn btn-block btn-primary">--%>
+<%--            </form>--%>
+<%--        </c:when>--%>
+<%--    </c:choose>--%>
 </div>
 
 </body>

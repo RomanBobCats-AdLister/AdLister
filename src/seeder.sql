@@ -27,7 +27,7 @@ INSERT INTO categories (category) VALUES ('misc');
 
 
 
-INSERT INTO ads(cat_id, title, description ) VALUES (1, 'Spaceship', 'Asking price:  $2 million.   Used only once.  Has some dents and scratches.  Needs a new engine core and plutonium.  Great side project');
+INSERT INTO ads(cat_id, title, description ) VALUES (2, 'Spaceship', 'Asking price:  $2 million.   Used only once.  Has some dents and scratches.  Needs a new engine core and plutonium.  Great side project');
 
 INSERT INTO ads(user_id, title, description ) VALUES (1, 'Toaster', 'Used. Likes to throw toast in your face. Has some dents and scratches. $5 OBO');
 
